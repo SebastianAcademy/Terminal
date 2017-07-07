@@ -3,23 +3,25 @@ package com.company.Testprojekt;
 import com.googlecode.lanterna.input.Key;
 import com.googlecode.lanterna.terminal.Terminal;
 
+import java.util.List;
+
 /**
  * Created by Tullduvan on 2017-07-07.
  */
 public class toPrint {
     public int x;
     public int y;
-    public int[] tempx;
+    public List<Integer> tempx;
     Terminal terminal;
 
-    public toPrint(int x, int y, int[] tempx, Terminal terminal) {
+    public toPrint(int x, int y, List<Integer> tempx,  Terminal terminal) {
         this.x = x;
         this.y = y;
         this.terminal = terminal;
         this.tempx = tempx;
     }
 
-    public void Print (int startx, Key key, String stringInput){
+    public void Print (int startx, int xmax, Key key, String stringInput){
         char input;
         switch(key.getKind()){
             case Backspace:
@@ -29,9 +31,10 @@ public class toPrint {
                 }
                 if(x == 1 && y > 2){
                     y--;
-                    x = tempx[y];
+                    x = tempx.get(y-2);
                     terminal.putCharacter(input);
                     terminal.moveCursor(x, y);
+                    tempx.remove(y-2);
                     break;
                 }
                 if(x > 1) {
@@ -42,7 +45,7 @@ public class toPrint {
                     break;
                 }
             case Enter:
-                tempx[y] = x;
+                tempx.add(x);
                 x = startx;
                 y++;
                 terminal.moveCursor(x, y);
