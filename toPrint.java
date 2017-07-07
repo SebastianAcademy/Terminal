@@ -29,18 +29,16 @@ public class toPrint {
                     break;
                 }
                 if(x == 1 && y > 2){
-                    terminal.putCharacter(input);
-                    System.out.println("hej");
                     y--;
                     x = tempx[y];
-                    terminal.moveCursor(x, y);
                     terminal.putCharacter(input);
+                    terminal.moveCursor(x, y);
                     break;
                 }
-                terminal.moveCursor(x, y);
-                terminal.putCharacter(input);
                 if(x > 1) {
                     x--;
+                    terminal.moveCursor(x, y);
+                    terminal.putCharacter(input);
                     terminal.moveCursor(x, y);
                     break;
                 }
