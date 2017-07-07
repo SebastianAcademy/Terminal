@@ -19,9 +19,8 @@ public class toPrint {
         this.tempx = tempx;
     }
 
-    public void Print (Key key, String stringInput){
+    public void Print (int startx, Key key, String stringInput){
         char input;
-        int startx = 1;
         switch(key.getKind()){
             case Backspace:
                 input = ' ';

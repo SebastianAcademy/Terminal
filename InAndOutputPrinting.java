@@ -18,14 +18,14 @@ public class InAndOutputPrinting {
         terminal.moveCursor(startx, starty);
         Key key = null;
         String stringInput = "";
-        String welcometext = "Hello! this is my successfull IO-console";
+        String welcometext = "Hello! this is my successfull IO-console, press ESC to quit";
         toPrint printing = new toPrint(startx, starty, tempx, terminal);
         printing.WriterTerminal(startx, welcometext);
         while(true){
             key = waitPressKey(key, terminal);
             if( key.getKind() == Key.Kind.Escape)
                 break;
-            printing.Print(key, stringInput);
+            printing.Print(startx, key, stringInput);
         }
         //System.out.println(stringInput);
         System.exit(0);
