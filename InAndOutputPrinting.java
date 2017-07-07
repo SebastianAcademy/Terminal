@@ -30,25 +30,7 @@ public class InAndOutputPrinting {
         //System.out.println(stringInput);
         System.exit(0);
     }
-
-   /* public static String Print (int x, int y, Key key, String stringInput, Terminal terminal){
-        char input;
-        input = key.getCharacter();
-        if(key.getKind() == Key.Kind.Backspace){
-            x--;
-            input = ' ';
-        }
-        else
-            x++;
-        if(key.getKind() == Key.Kind.Enter)
-            y++;
-
-        terminal.moveCursor(x, y);
-        terminal.putCharacter(input);
-        stringInput = Character.toString(input);
-        return stringInput;
-    }*/
-
+    
     public static Key waitPressKey (Key key, Terminal terminal)throws InterruptedException{
         do {
             Thread.sleep(5);
